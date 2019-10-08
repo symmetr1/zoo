@@ -1,0 +1,117 @@
+header {
+  overflow: hidden;
+  background-color: #ffeebb;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  text-align:center;
+}
+body{
+  background-color: #da9c2d;
+}
+nav{
+  box-shadow: -5px 8px #d37512;
+    border-radius: 25px;
+    display:inline-block;
+    text-align: center;background-color: #cdd;
+   /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+
+    padding:10px;
+}
+nav a{
+  color:#000000;
+
+}
+nav h1{
+    font-family:"Courier";
+    font-size: 190%;
+    color: #811915;
+}
+h2{ font-family:"Comic Sans MS";
+    color: #904d4d;
+    font-size:140%;
+}
+
+
+/*
+main {
+  margin-top: 50px; // Add a top margin to avoid content overlay
+  margin-bottom: 30px;
+  background-color:#ffccff;
+  text-align:center;
+}
+
+footer {
+  overflow: hidden;
+  background-color: #99aaff;
+  position: fixed; // Set the navbar to fixed position
+  bottom: 0; // Position the navbar at the top of the page
+  width: 100%; // Full width
+  text-align:center;
+}  
+*/
+th,td{border:1px solid black;}
+th{color:white;background:black;}
+table{border:5px solid grey;width:100%;background: #7b4040;}
+tr:nth-child(even) {background: #feffc1
+}
+tr:nth-child(odd) {background: #cec1bb
+}
+
+
+@keyframes example {
+    0% {background-color: #1d106f;}
+    25% {background-color: #ffa268;}
+    50% {background-color: #1d106f;}
+    75% {background-color: #ffa268;}
+    100% {background-color: #1d106f;}
+    0% {color: #ffa268;}
+    25% {color: #1d106f;}
+    50% {color: #ffa268;}
+    75% {color: #1d106f;}
+    100% {color: #ffa268;}
+    0% {border-radius: 50px;}
+    50%{border-radius:0px}
+   100% {border-radius: 50px;}
+}
+@keyframes formAnim {
+    0% {border-radius: 500px;}
+    50%{border-radius:0px}
+    100% {border-radius: 50px;}
+}
+
+
+body{ text-align: center;}
+.forTheForm{
+    box-shadow: -5px 8px #476915;
+    border-radius: 50px;
+    display:inline-block;
+    width: auto;
+    text-align: center;
+    font-family: "Courier New";
+    background-color: #483c3e;
+    color: #ffb36d;
+    animation-name: formAnim;
+    animation-duration: 2s;
+    border: #8a155f 2px double;
+    padding:18px;
+    justify-content: center;
+
+}
+.login {
+    box-shadow: -5px 8px #552222;
+    border-radius: 50px;
+    display:inline-block;
+    width: auto;
+    text-align: center;
+    font-family: "Courier New";
+    background-color: #1d106f;
+    color: #ffa268;
+    animation-name: example;
+    animation-duration: 20s;
+    border: brown 2px double;
+    padding:18px;
+    justify-content: center;
+}
