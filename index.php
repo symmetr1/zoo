@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> login </title>
+    <title> -=ZOO LOGIN=-</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 <div class="login">
-    <h3>-=LOGIN=-</h3>
+    <h3>-=ZOO LOGIN=-</h3>
 
     <form action="authenticate.php" method="post">
         <label for="username">Username:</label>

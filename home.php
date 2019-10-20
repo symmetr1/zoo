@@ -31,29 +31,26 @@ include('connection.php');?>
 
     <div>
 <?php
-$query='SELECT * FROM songtable';
+$query='SELECT * FROM exhibits ORDER BY areaID';
 if($queryresult=mysqli_query($connection,$query)){
     print "<table>";
-    print "<tr><th>-=Title=-</th><th>Artist</th><th>Key</th><th>Chord 1</th><th>URL</th><th>Notes</th></tr>";
+    print "<tr><th>-=Area=-</th><th>Exhibit</th><th>Open?</th><th>Picture</th></tr>";
     while($row=mysqli_fetch_array($queryresult)){
- //dont think below line is necessary?
-        $song_title=$row['title'];
-        $fileName=("songs/".preg_replace('!\s+!', '-',trim($song_title)).'.txt');
-        if($row['url']){
-            $song_url=$row['url'];
-            $display_url='user stored URL';
-        }
-        else{
-            if(file_exists($fileName)){
-                $song_url=$fileName;
-                $display_url='<img height="10px" src="images/star.png">Text File';
-            }
-            else{
-                $song_url='https://www.google.com/search?q=chords'.'+'.$song_title.'+'.$row['artist'];
-                $display_url='search google for chords';
-            }
-        }
-        print "<tr><td>{$row['title']}</td><td> {$row['artist']}</td><td>{$row['songKey']}</td><td>{$row['firstChord']}</td><td><a href='{$song_url}'>{$display_url}</a></td><td>{$row['notes']}</td></tr>";
+        $areaquery='SELECT areaName FROM areas WHERE areaID='.$row["areaID"];
+        $areaqueryresult=mysqli_query($connection,$areaquery);
+        $arearow=mysqli_fetch_array($areaqueryresult);
+        $areaName=$arearow['areaName'];
+
+
+        $exhibit=$row['exhibitName'];
+        $picture_url=("images/".$row['pictureurl']);
+        $display_url='<img height="75px" width="75px" src='.$picture_url.'>';
+
+
+        print "<tr ";
+        if($row['isopen']==0) {$isopenstring="<em>CLOSED</em>";print("style='background:#ffffff'");}
+        else{$isopenstring="OPEN";}
+            print("><td>{$areaName}</td><td> {$row['exhibitName']}</td><td>{$isopenstring}</td><td>{$display_url}</td></tr>");
     }//while
     print "</table>";
 }

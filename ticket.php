@@ -36,8 +36,8 @@ include('connection.php');
         $accountchange=0;
         if($_POST["command"]=="upgrade"){
             $query= "UPDATE users SET allAreas=1 WHERE userID='{$_SESSION["userID"]}'";
-            $result=mysqli_query($connection,$query);
-            $accountchange=-100.00;
+            mysqli_query($connection,$query);
+            $accountchange=100.00;
         }
         elseif($_POST['command']=='extend'){
             echo("<em>".$_SESSION['ticketExpiration']."</em>");
@@ -45,16 +45,16 @@ include('connection.php');
                 " WHERE userID='{$_SESSION["userID"]}'";
             $result=mysqli_query($connection,$query);
             if($_SESSION['allAreas']==1){
-                $accountchange=-300.00;
+                $accountchange=300.00;
             }
             elseif($_SESSION['allAreas']==0){
-                $accountchange=-200.00;
+                $accountchange=200.00;
             }
         }
 
 
         if($accountchange!=0){
-            echo("<script>alert('your account has been modified by ".$accountchange." dollars')</script>");
+            echo("<script>alert('your account has been debited ".$accountchange." dollars and transaction has been processed')</script>");
 
         }
         header("Refresh:0");

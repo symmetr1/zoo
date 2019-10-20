@@ -19,14 +19,14 @@ if(mysqli_connect_errno()){
 if(!isset($_POST['username'],$_POST['password'])){
     die('Please fill out the fields before submitting');
 }
-if($stmt=$connection->prepare('SELECT username,password,isadmin FROM users WHERE username=?')){
+if($stmt=$connection->prepare('SELECT username,password,isadmin,allAreas,ticketExpiration,userID FROM users WHERE username=?')){
     $stmt->bind_param('s',$_POST['username']);
     $stmt->execute();
     $stmt->store_result();
 }
 
 if($stmt->num_rows>0){
-    $stmt->bind_result($id,$password,$isadmin);
+    $stmt->bind_result($id,$password,$isadmin,$allAreas,$ticketExpiration,$userID);
     $stmt->fetch();
     if (password_verify($_POST['password'],$password)){
         //success
@@ -35,6 +35,9 @@ if($stmt->num_rows>0){
         $_SESSION['name']=$_POST['username'];
         $_SESSION['id']=$id;
         $_SESSION['isadmin']=$isadmin;
+        $_SESSION['allAreas']=$allAreas;
+        $_SESSION['ticketExpiration']=$ticketExpiration;
+        $_SESSION['userID']=$userID;
         header('Location: home.php');
     }
     else{

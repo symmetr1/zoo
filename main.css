@@ -8,6 +8,7 @@ header {
 }
 body{
   background-color: #da9c2d;
+  background-image: url("images/bgcheetah.jpg");
 }
 nav{
   box-shadow: -5px 8px #d37512;
@@ -35,23 +36,6 @@ h2{ font-family:"Comic Sans MS";
 }
 
 
-/*
-main {
-  margin-top: 50px; // Add a top margin to avoid content overlay
-  margin-bottom: 30px;
-  background-color:#ffccff;
-  text-align:center;
-}
-
-footer {
-  overflow: hidden;
-  background-color: #99aaff;
-  position: fixed; // Set the navbar to fixed position
-  bottom: 0; // Position the navbar at the top of the page
-  width: 100%; // Full width
-  text-align:center;
-}  
-*/
 th,td{border:1px solid black;}
 th{color:white;background:black;}
 table{border:5px solid grey;width:100%;background: #7b4040;}
